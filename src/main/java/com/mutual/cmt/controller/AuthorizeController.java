@@ -2,6 +2,8 @@ package com.mutual.cmt.controller;
 
 import com.mutual.cmt.dto.AccessTokenDTO;
 import com.mutual.cmt.dto.GithubUser;
+import com.mutual.cmt.mapper.UserMapper;
+import com.mutual.cmt.model.User;
 import com.mutual.cmt.provider.GithubProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.UUID;
 
 
 /**
@@ -35,6 +38,8 @@ public class AuthorizeController {
     @Autowired
     private GithubProvider githubProvider;
 
+    @Autowired
+    private UserMapper userMapper;
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state,
@@ -48,6 +53,13 @@ public class AuthorizeController {
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser = githubProvider.getUser(accessToken);
         if (githubUser != null){
+            User user = new User();
+            user.setToken(UUID.randomUUID().toString());
+            user.setName(githubUser.getLogin());
+            user.setAccountId(String.valueOf(githubUser.getId()));
+            user.setGmtCreate(System.currentTimeMillis());
+            user.setGmtModified(user.getGmtCreate());
+            userMapper.insert(user);
             //登录成功，写cookie和session
             request.getSession().setAttribute("user",githubUser);
             return "redirect:/";
