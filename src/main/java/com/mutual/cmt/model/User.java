@@ -14,6 +14,13 @@ public class User implements Serializable {
     private long gmtCreate;
     private long gmtModified;
 
+    public String getLogin() {
+        return name;
+    }
+
+    public void setLogin(String login) {
+        this.name = login;
+    }
     public int getId() {
         return id;
     }
@@ -28,14 +35,6 @@ public class User implements Serializable {
 
     public void setAccountId(String accountId) {
         this.accountId = accountId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getToken() {

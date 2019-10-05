@@ -1,0 +1,15 @@
+body{
+    background: #B0C4DE;
+}
+.main{
+    background: whitesmoke;
+    margin: 40px;
+}
+.btn-publish{
+    float: right;
+    margin-bottom: 10px;
+}
+.navbar-right{
+    background: #eea236;
+    margin: 5px;
+}
