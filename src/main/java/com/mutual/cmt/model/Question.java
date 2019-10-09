@@ -1,9 +1,12 @@
 package com.mutual.cmt.model;
 
+import lombok.Data;
+
 /**
  * @author yyuanyan
  * @create 2019 - 10 - 05 - 2:48
  */
+@Data
 public class Question {
     private String title;
     private String description;

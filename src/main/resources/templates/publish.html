@@ -20,7 +20,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">MHC</a>
+            <a class="navbar-brand" href="/">MHC</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,7 +67,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description">问题补充（参照右边提示）</label>
-                            <textarea class="form-control" id="description" th:value="${description}" name="description" cols="30" rows="10"></textarea>
+                            <textarea class="form-control" id="description" th:text="${description}" name="description" cols="30" rows="10"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="tag">添加标签</label>

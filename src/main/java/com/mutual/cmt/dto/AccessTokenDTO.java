@@ -1,11 +1,13 @@
 package com.mutual.cmt.dto;
 
+import lombok.Data;
+
 /**
  * @author yyuanyan
  * @create 2019 - 10 - 03 - 1:55
  */
+@Data
 public class AccessTokenDTO {
-
     private String client_id;
     private String client_secret;
     private String code;
@@ -50,5 +52,16 @@ public class AccessTokenDTO {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return "AccessTokenDTO{" +
+                "client_id='" + client_id + '\'' +
+                ", client_secret='" + client_secret + '\'' +
+                ", code='" + code + '\'' +
+                ", redirect_uri='" + redirect_uri + '\'' +
+                ", state='" + state + '\'' +
+                '}';
     }
 }

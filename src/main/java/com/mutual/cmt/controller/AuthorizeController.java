@@ -5,6 +5,7 @@ import com.mutual.cmt.dto.GithubUser;
 import com.mutual.cmt.mapper.UserMapper;
 import com.mutual.cmt.model.User;
 import com.mutual.cmt.provider.GithubProvider;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -60,6 +61,7 @@ public class AuthorizeController {
             user.setToken(token);
             user.setLogin(githubUser.getLogin());
             user.setAccountId(String.valueOf(githubUser.getId()));
+            user.setAvatarUrl(githubUser.getAvatar_url());
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);

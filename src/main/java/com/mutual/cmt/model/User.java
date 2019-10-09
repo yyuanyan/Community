@@ -1,11 +1,14 @@
 package com.mutual.cmt.model;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
  * @author yyuanyan
  * @create 2019 - 10 - 04 - 2:02
  */
+@Data
 public class User implements Serializable {
     private int id;
     private String accountId;
@@ -13,14 +16,8 @@ public class User implements Serializable {
     private String token;
     private long gmtCreate;
     private long gmtModified;
+    private String avatarUrl;
 
-    public String getLogin() {
-        return name;
-    }
-
-    public void setLogin(String login) {
-        this.name = login;
-    }
     public int getId() {
         return id;
     }
@@ -35,6 +32,14 @@ public class User implements Serializable {
 
     public void setAccountId(String accountId) {
         this.accountId = accountId;
+    }
+
+    public String getLogin() {
+        return name;
+    }
+
+    public void setLogin(String name) {
+        this.name = name;
     }
 
     public String getToken() {
@@ -59,5 +64,13 @@ public class User implements Serializable {
 
     public void setGmtModified(long gmtModified) {
         this.gmtModified = gmtModified;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 }
