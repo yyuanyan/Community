@@ -10,7 +10,6 @@ body{
     margin-bottom: 10px;
 }
 .navbar-right{
-    background: #eea236;
     margin: 5px;
 }
 /*
@@ -27,4 +26,7 @@ body{
     font-size: 12px;
     font-weight: normal;
     color: #999999;
+}
+.profile .section{
+    margin-top: 15px;
 }
