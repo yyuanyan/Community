@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class Question {
+    private long id;
     private String title;
     private String description;
     private long gmtCreate;
@@ -17,6 +18,14 @@ public class Question {
     private int viewCount;
     private int likeCount;
     private String tag;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

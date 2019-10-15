@@ -29,7 +29,7 @@ import java.util.UUID;
 @Slf4j
 public class AuthorizeController {
 
-    @Value("${github.client.id}")
+    @Value(" ${github.client.id}")
     private String clientId;
 
     @Value("${github.client.secret}")
